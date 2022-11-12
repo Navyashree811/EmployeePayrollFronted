@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<div class="main-content">
+    <div class="header-content">
+        <div class="emp-detail-text">
+            Employee Details 
+        </div>
+        <div><button mat-raised-button class="example-action-button">
+            <img src="../../assets/search1.png">
+    </button>
+    </div>
+        <button mat-button (click) = "btnClick()"><img src="../../assets/add-24px.svg"> Add user</button>
+    </div>
+    <div class="table-main">
+        <table class="table" id="display">
+            <tr>
+                <th>{{this.name}}</th>
+                <th>{{this.gender}}</th>
+                <th>{{this.department}}</th>
+                <th>{{this.salary}}</th>
+                <th>{{this.startDate}}</th>
+                <th>Actions</th>
+            </tr>
+            <tr *ngFor="let employee of allEmp">
+                
+                <td>{{employee.employeeId}}</td>
+                <td><img [src]="employee.profilePic" class="pic"></td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.gender}}</td>
+                <td>{{employee.department}}</td>
+                <td>{{employee.salary}}</td>
+                <td>{{employee.note}}</td>
+                <td>{{employee.startDate | date}}</td>
+                <td class="action-icon">
+                    <mat-icon >edit</mat-icon>
+                    <mat-icon >delete_outline</mat-icon>
+                    <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" (click)="editById(employee.employeeId)" ></mat-icon> -->
+                </td>
+
+            </tr>
+        </table>
+    </div>
+</div>
