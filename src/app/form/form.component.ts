@@ -26,7 +26,7 @@ emps:any = "";
 allEmp : Array<any>=[];  
 tempArr : Array<any> = [];
 
-Id:any = this.route.snapshot.paramMap.get("id");
+Id:any = this.route.snapshot.paramMap.get("Id")
 constructor(private employeeService: EmployeeService,private router: Router, private route:ActivatedRoute) { }
 
 employee: EmployeeModel = new EmployeeModel("", new Date, "", "", [], "", 0);
@@ -35,7 +35,7 @@ depart2: any = ["HR", "Sales", "Engineer", "Finance", "Other"];
 
 ngOnInit(): void {
   this.getDeprt();
-  this.getEmployeeById();
+  // this.getEmployeeById();
 
 }
 getDeprt(){
@@ -78,6 +78,7 @@ getDeprt(){
   ];
 
   addEmployee() {
+    alert("Employee data added successfully !")
     console.log(this.employee);
     this.employee.department = this.tempArr;
    
@@ -88,29 +89,19 @@ getDeprt(){
   
   }
 
-  updateEmployeeData() {
-  
-    
-    this.employee.department = this.tempArr;
-   
-    this.employeeService.updateEmployeeById(this.employee, this.Id).subscribe((response: any) => {
-      this.router.navigate(["dashboard"]);
-    });
-  
-  }
-  getEmployeeById(){    
+  // getEmployeeById(){    
 
     
-    this.employeeService.getEmployeeById(this.Id).subscribe((response:any) => {
-      console.log("This is  what it is ",response);
+  //   this.employeeService.getEmployeeById(this.Id).subscribe((response:any) => {
+  //     console.log("This is  what it is ",response);
   
       
-      this.employee = response.data;
+  //     this.employee = response.data;
      
       
-    });
+  //   });
     
-  }
+  // }
 }
 
 

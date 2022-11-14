@@ -93,9 +93,9 @@
             <button mat-button type="cancle" class="button submitButton cancelButton"
                 routerLink="/dashboard">Cancel</button>
             <div class="submit-reset">
-                <button mat-button type="submit" class="button submitButton" *ngIf="this.Id==null" (click)="addEmployee()" >Submit</button>
+
                 
-                <!-- <button mat-button type="submit" class="button submitButton" *ngIf="this.Id!=null"  (click)="updateEmployeeData()">Update</button> -->
+                <button mat-button type="submit" class="button submitButton" (click)="updateEmployeeData()">Update</button>
                 
                 <button mat-button type="reset" class="button resetButton">Reset</button>
             </div>

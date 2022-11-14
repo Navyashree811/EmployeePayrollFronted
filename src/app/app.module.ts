@@ -17,13 +17,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 import {MatIconModule} from '@angular/material/icon';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     DashboardComponent,
-    FormComponent
+    FormComponent,
+    UpdateComponent
   ],
   imports: [
     MatDatepickerModule,

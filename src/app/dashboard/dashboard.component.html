@@ -14,6 +14,7 @@
     <div class="table-main">
         <table class="table" id="display">
             <tr>
+                <th></th>
                 <th>{{this.name}}</th>
                 <th>{{this.gender}}</th>
                 <th>{{this.department}}</th>
@@ -21,20 +22,20 @@
                 <th>{{this.startDate}}</th>
                 <th>Actions</th>
             </tr>
-            <tr *ngFor="let employee of allEmp">
+            <tr *ngFor="let employee of employeelist">
                 
-                <td>{{employee.employeeId}}</td>
+                
                 <td><img [src]="employee.profilePic" class="pic"></td>
                 <td>{{employee.name}}</td>
                 <td>{{employee.gender}}</td>
                 <td>{{employee.department}}</td>
                 <td>{{employee.salary}}</td>
-                <td>{{employee.note}}</td>
+            
                 <td>{{employee.startDate | date}}</td>
                 <td class="action-icon">
-                    <mat-icon >edit</mat-icon>
-                    <mat-icon >delete_outline</mat-icon>
-                    <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" (click)="editById(employee.employeeId)" ></mat-icon> -->
+                    <mat-icon  (click)="editById(employee.id)">edit</mat-icon>
+                    <mat-icon (click)="deleteEmp(employee.id)">delete_outline</mat-icon>
+                    <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" (click)="editById(employee.employeeId)" ></mat-icon>  -->
                 </td>
 
             </tr>

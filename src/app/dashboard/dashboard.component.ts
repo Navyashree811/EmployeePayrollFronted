@@ -10,7 +10,7 @@ import { EmployeeModel } from '../EmployeeModel';
 })
 export class DashboardComponent implements OnInit {
 
-  allEmp:Array<any> = [];
+  allEmp:any ;
 
   countNumber:any = 0;
   name:string = "name";
@@ -20,10 +20,13 @@ export class DashboardComponent implements OnInit {
   startDate:string = "Start Date";
   note:string = "note";  
   constructor(private employeeService: EmployeeService,private router: Router) { }
+  employeelist: any;
 
   ngOnInit(): void {
-    this.getAllEmployee();
-    
+    this.employeeService.getAllEmployee().subscribe((data: any) => {
+      this.employeelist = data.data;
+      console.log(this.employeelist);
+    });
   }
 
   btnClick=  () => {
@@ -41,7 +44,8 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteEmp(Id:number){
-    this.employeeService.deleteEmployee(Id).subscribe((response:any) =>{
+    alert("Employee data deleted")
+     this.employeeService.deleteEmployee(Id).subscribe((response:any) =>{
       this.ngOnInit();
       this.router.navigate(['dashboard']);      
     }); 
